@@ -1,0 +1,22 @@
+<mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav="matSidenav" mode="side" opened>
+        <div class="logo">
+            <img src="" alt="">Logo
+        </div>
+        <button mat-button class="side-buton">
+            <p><a [routerLink]="['paises/home']">Home</a></p>
+        </button>
+        <button mat-button class="side-buton">
+            <p><a [routerLink]="['paises/vista1']">Vista 1</a></p>
+        </button>
+        <button mat-button class="side-buton">
+            <p><a [routerLink]="['paises/vista2']">Vista 2</a></p>
+        </button>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="content">
+            <!--para mostrar el contenido al hacer el routerlink-->
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

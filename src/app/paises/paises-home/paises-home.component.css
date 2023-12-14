@@ -1,0 +1,46 @@
+.mat-mdc-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+
+  .example-card {
+    max-width: 500px;
+    margin: 20px 10px 10px 70px;
+    border-radius: 50px;
+
+  }
+  mat-card{
+    height: 500px;
+  }
+  mat-card-header{
+    padding: 20px;
+  }
+  .example-header-image {
+    background-size: cover;
+    margin-right: 15px;
+    margin-left: 15px;
+  }
+
+  mat-card-title{
+    font-size: 2rem;
+  }
+  mat-card-subtitle{
+    text-align: left;
+    font-size: 1.5rem;
+  }
+
+.absolute-position {
+  position: absolute;
+  right: 0;
+  top: 75px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+.grid-item {
+ height: 500px;
+ width: 400px;
+ margin-bottom: 20px;
+}

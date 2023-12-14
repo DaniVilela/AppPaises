@@ -1,0 +1,64 @@
+<div class="container">
+    <div class="filter">
+        <mat-form-field>
+            <mat-label>País</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Escribe el país que deseas ver" #input>
+        </mat-form-field>
+    </div>
+    <div class="grid-container">
+        <div *ngFor="let item of list.slice(0, list.length >= 20 ? 20 : list.length)" class="grid-item">
+            <mat-card class="example-card" [class.verde]="detalleCountry && detalleCountry.name == item.name"
+                (click)="showDetail(item)">
+                <!--<img mat-card-image [src]="this.pixabayService.searchImage(item.name)">-->
+                <div>
+                    <mat-card-header>
+                        <span mat-card-avatar>
+                            <img [src]="getFlag(item.code)">
+                        </span>
+                        <mat-card-title>{{item.name}}</mat-card-title>
+                        <mat-card-subtitle>{{item.continent.name}}</mat-card-subtitle>
+                    </mat-card-header>
+                </div>
+            </mat-card>
+        </div>
+    </div>
+
+    <div *ngIf="detalleCountry">
+
+        <mat-card class="example-card absolute-position">
+            <img mat-card-image [src]="">
+            <div>
+                <mat-card-header>
+                    <span mat-card-avatar>
+                        <img [src]="getFlag(detalleCountry.code)">
+                    </span>
+                    <mat-card-title>{{detalleCountry.name}}</mat-card-title>
+                    <mat-card-subtitle>{{detalleCountry.continent.name}}</mat-card-subtitle>
+
+                    <mat-card-title>Capital: </mat-card-title>
+                    <mat-card-subtitle>{{detalleCountry.capital}}</mat-card-subtitle>
+
+                    <mat-card-title>Language(s): </mat-card-title>
+                    <mat-card-subtitle>{{getLanguages(detalleCountry.languages)}}</mat-card-subtitle>
+
+                    <mat-card-title>Currency: </mat-card-title>
+                    <mat-card-subtitle>{{detalleCountry.currencies.join(", ")}}</mat-card-subtitle>
+
+                    <mat-card-title>Region: </mat-card-title>
+                    <mat-card-subtitle style="max-height: 20%;">
+                        <select style="background-color: white; --mat-option-selected-state-label-text-color: white;"
+                            name="my_html_select_box" multiple="yes" size="5">
+
+                            <option
+                                style="background-color: white; --mat-option-selected-state-label-text-color: white;"
+                                *ngFor="let region of detalleCountry.states">
+                                {{region.name}}
+                            </option>
+                        </select>
+                    </mat-card-subtitle>
+
+                </mat-card-header>
+            </div>
+        </mat-card>
+    </div>
+</div>
